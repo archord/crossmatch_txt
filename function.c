@@ -986,13 +986,13 @@ void writeToFile(char *fileName, struct SAMPLE * sample) {
         printf("open file %s error!\n", fileName);
         return;
     }
-    fprintf(fp, "#%10s%15s%15s%10s%15s%15s", "sid", "sra", "sdec", "rid", "rra", "rdec", "error\n");
+    fprintf(fp, "#%10s%15s%15s%10s%15s%15s%15s", "sid", "sra", "sdec", "rid", "rra", "rdec", "error\n");
 
     struct SAMPLE *tSample = sample->next;
     long i = 0;
     while (tSample) {
       if(tSample->reference != NULL){
-        fprintf(fp, "%10d %15.7f %15.7f%10d %15.7f %15.7f\n", tSample->id, tSample->alpha, tSample->delta, tSample->reference->id, tSample->reference->alpha, tSample->reference->delta, tSample->error);
+        fprintf(fp, "%10d %15.7f %15.7f%10d %15.7f %15.7f %15.7f\n", tSample->id, tSample->alpha, tSample->delta, tSample->reference->id, tSample->reference->alpha, tSample->reference->delta, tSample->error);
         i++;
       }
         tSample = tSample->next;
